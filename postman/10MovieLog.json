@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "2f7ea78e-6008-4f83-b064-5eb2500e3278",
+		"name": "10. Movie Logs [Only admin users]",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Movie Logs - Expected: Forbidden Error",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7002/api/v1/movies/admin?page=1&size=10&sort=-likes%2C-stock%2Ctitle&search=the&availability=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7002",
+					"path": [
+						"api",
+						"v1",
+						"movies",
+						"admin"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "sort",
+							"value": "-likes%2C-stock%2Ctitle"
+						},
+						{
+							"key": "search",
+							"value": "the"
+						},
+						{
+							"key": "availability",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Request Token from user with Admin Role",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"Applaudo&01!\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7001/api/v1/Account/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"v1",
+						"Account",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Movie Logs - Role: Admin - Expected: Ok -> Copy Token From previous step",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7002/api/v1/movies/admin?page=1&size=10&sort=-likes%2C-stock%2Ctitle&search=the&availability=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7002",
+					"path": [
+						"api",
+						"v1",
+						"movies",
+						"admin"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "sort",
+							"value": "-likes%2C-stock%2Ctitle"
+						},
+						{
+							"key": "search",
+							"value": "the"
+						},
+						{
+							"key": "availability",
+							"value": "true"
+						}
+					]
+				},
+				"description": "User Token From last step"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

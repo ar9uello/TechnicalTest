@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "d13ec014-9513-4f50-b98c-3238197d46a1",
+		"name": "06. List of available movies (authenticated or not).",
+		"description": "Search through the movies by name.\r\n[You can sort by any existing column, use '-' as a descent indicator. You can also add multiple columns separated by commas. Example: -likes,-stock,title]\r\nThe list must have pagination functionality.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. See all movies filtering - Expected: Forbidden Error",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7002/api/v1/movies?page=1&size=10&sort=-likes%2C-stock%2Ctitle&search=the",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7002",
+					"path": [
+						"api",
+						"v1",
+						"movies"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "sort",
+							"value": "-likes%2C-stock%2Ctitle"
+						},
+						{
+							"key": "search",
+							"value": "the"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

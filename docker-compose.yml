@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+
+  identityapi:
+    container_name: identityapi
+    build:
+      context: .
+      dockerfile: src/services/identity/api/Dockerfile
+    ports:
+      - "7001:80"
+      - "1433:1433"
+
+  movieapi:
+    container_name: movieapi
+    build:
+      context: .
+      dockerfile: src/services/movie/api/Dockerfile
+    ports:
+      - "7002:80"

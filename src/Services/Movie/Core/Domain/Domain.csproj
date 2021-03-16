@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>TechnicalTest.Movie.Domain</RootNamespace>
+    <AssemblyName>TechnicalTest.Movie.Domain</AssemblyName>
+  </PropertyGroup>
+
+</Project>
